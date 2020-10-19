@@ -22,8 +22,8 @@ namespace GetImage
         private byte[] _hinh;
         public byte[] hinh { get => _hinh; set { _hinh = value; OnPropertyChanged(); } }
 
-        public ObservableCollection<XuLyHinhAnh> _listhinh;
-        public ObservableCollection<XuLyHinhAnh> listhinhanh { get => _listhinh; set { _listhinh = value; OnPropertyChanged(); } }
+        public ObservableCollection<Image> _listhinh;
+        public ObservableCollection<Image> listhinhanh { get => _listhinh; set { _listhinh = value; OnPropertyChanged(); } }
 
         private ImageSource _HinhSource;
 
@@ -53,15 +53,16 @@ namespace GetImage
         public void loadhinhanh()
         {
             var db = new hinhanhContext();
-            listhinhanh = new ObservableCollection<XuLyHinhAnh>();
+            listhinhanh = new ObservableCollection<Image>();
             var ha = db.Image;
             foreach (var item in ha)
             {
-                XuLyHinhAnh hinhanhContext = new XuLyHinhAnh();
-                hinhanhContext.ID = item.IdHinh;
-                hinhanhContext.tenhinh = item.TenHinh;
-                hinhanhContext.hinh = item.Hinh;
-                hinhanhContext.HinhSource = GetImage(item.Hinh);
+                Image hinhanhContext = new Image();
+                hinhanhContext.IdHinh = item.IdHinh;
+                hinhanhContext.TenHinh = item.TenHinh;
+                hinhanhContext.Hinh = item.Hinh;
+                HinhSource = GetImage(item.Hinh);
+                listhinhanh.Add(hinhanhContext);
             }
         }
     }

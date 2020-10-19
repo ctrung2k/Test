@@ -44,7 +44,7 @@
                         </Style.Triggers>
                     </Style>
                 </Grid.Style>
-                <Grid DataContext="{StaticResource mainVM}">
+                <Grid DataContext="{StaticResource hinhanhVM}">
                     <ListView ItemsSource="{Binding listhinhanh}">
                         <!--ĐỊNH DẠNG NỘI DUNG-->
                         <ListView.ItemContainerStyle>
@@ -64,7 +64,7 @@
                                         <Setter Property="IsEnabled" Value="False"/>
                                     </Style>
                                 </GridView.ColumnHeaderContainerStyle>
-                                <GridViewColumn Width="200" Header="ID" DisplayMemberBinding="{Binding ID}"/>
+                                <GridViewColumn Width="200" Header="ID" DisplayMemberBinding="{Binding }"/>
                                 <GridViewColumn Width="430" Header="Tên sản phẩm" DisplayMemberBinding="{Binding tenhinh}"/>
                                 <GridViewColumn Width="430" Header="Hình" DisplayMemberBinding="{Binding hinh}"/>
                             </GridView>
